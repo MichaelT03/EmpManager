@@ -1,0 +1,38 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2>Delete Employee Data</h2>
+            <hr />
+        </div>
+        <div class="row mb-3 p-1">
+            <label asp-for="FirstName" class="p-0"></label>
+            <input asp-for="FirstName" disabled class="form-control" />
+        </div>
+        <div class="row mb-3 p-1">
+            <label asp-for="LastName" class="p-0"></label>
+            <input asp-for="LastName" disabled class="form-control" />
+        </div>
+        <div class="row mb-3 p-1">
+            <label asp-for="Shift" class="p-0"></label>
+            <input asp-for="Shift" disabled class="form-control" />
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-danger form-control">
+                    <i class="bi bi-trash-fill"></i> Delete
+                </button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Home" asp-action="ViewEmployees" class="btn btn-outline-light border form-control text-dark">
+                    Return to List
+                </a>
+            </div>
+        </div>
+    </div>
+</form>

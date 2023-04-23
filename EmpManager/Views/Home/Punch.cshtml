@@ -1,0 +1,53 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Punch Card";
+}
+
+<form mehtod="post" asp-action="Punch">
+    <div class="border p-3 mt-4">
+        <div class="row">
+            <div class="pb-2 col-6">
+                <h2>Employee Clock in Status</h2>
+                <hr />
+            </div>
+            <div class="pb-2 col-6">
+                <div class="row">
+                    <div class="col-6 text-end pe-2">
+                        <h3>@Model.FirstName</h3>
+                    </div>
+                    <div class="col-6 ps-0">
+                        @if (Model.IsClockedIn)
+                        {
+                            <h3>is Clocked In</h3>
+                        }
+                        else
+                        {
+                            <h3>is Clocked Out</h3>
+                        }
+                    </div>
+                </div>              
+            </div>
+        </div>
+        <div class="row mb-3 p-1">
+            <label asp-for="FirstName" class="p-0"></label>
+            <input asp-for="FirstName" disabled class="form-control" />
+        </div>
+        <div class="row mb-3 p-1">
+            <label asp-for="LastName" class="p-0"></label>
+            <input asp-for="LastName" disabled class="form-control" />
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-success form-control">
+                    <i class="bi bi-stopwatch"></i> Clock in/out
+                </button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Home" asp-action="ViewEmployees" class="btn btn-outline-light border form-control text-dark">
+                    Return to list
+                </a>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,38 @@
+﻿@model Employee 
+@*Since nothing is being passed to the view, this creates a new object of the Employee type*@
+
+@{
+    ViewData["Title"] = "Add Employee";
+}
+
+<form method="post">
+    <div class="row pb-3">
+        <h2>Add Employee</h2>
+        <hr />
+    </div>
+    <div class="row mb-3 p-1">
+        <label asp-for="FirstName" class="p-0"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="row mb-3 p-1">
+        <label asp-for="LastName" class="p-0"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="row mb-3 p-1">
+        <label asp-for="Shift" class="p-0"></label>
+        <input asp-for="Shift" class="form-control" />
+        <span asp-validation-for="Shift" class="text-danger"></span>
+    </div>
+    <div class="row">
+        <div class="col-6 col-md-3 ps-1">
+            <button type="submit" class="btn btn-dark form-control">Add</button>
+        </div>
+        <div class="col-6 col-md-3">
+            <a asp-controller="Home" asp-action="ViewEmployees" class="btn btn-outline-light border form-control text-dark">
+                Back to List
+            </a>
+        </div>
+    </div>
+</form>

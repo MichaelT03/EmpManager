@@ -1,0 +1,40 @@
+﻿@model List<Employee>
+
+@{
+    ViewData["Title"] = "Currently Working";
+}
+
+<div class="container mx-0">
+    <div class="row py-4">
+        <h2 class="ps-0">Currently Clocked In Employees</h2>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Shift</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any(e => e.IsClockedIn))
+        {
+            <tr>
+                <td colspan="4" class="text-center">No Employees Are Currently Clocked In</td>
+            </tr>
+        }
+
+        @foreach (var obj in Model.Where(u => u.IsClockedIn).OrderBy(e => e.Id))
+        {
+            <tr>
+                <td>@obj.Id</td>
+                <td>@obj.FirstName</td>
+                <td>@obj.LastName</td>
+                <td>@obj.Shift</td>
+            </tr>
+        }
+    </tbody>
+</table>

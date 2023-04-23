@@ -1,0 +1,40 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2>Edit Employee Data</h2>
+            <hr />
+        </div>
+        <div class="row mb-3 p-1">
+            <!--Since an object is being passed here that already has fields the text boxes are auto populated-->
+            <label asp-for="FirstName" class="p-0"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span> <!--Data validation error message-->
+        </div>
+        <div class="row mb-3 p-1">
+            <label asp-for="LastName" class="p-0"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="row mb-3 p-1">
+            <label asp-for="Shift" class="p-0"></label>
+            <input asp-for="Shift" class="form-control" />
+            <span asp-validation-for="Shift" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-info form-control">Update</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Home" asp-action="ViewEmployees" class="btn btn-outline-light border form-control text-dark">
+                    Return to list
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
